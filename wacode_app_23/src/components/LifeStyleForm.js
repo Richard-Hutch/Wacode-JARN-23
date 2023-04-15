@@ -60,9 +60,7 @@ function LifeStyleForm() {
     <div class="h-screen w-screen flex items-center justify-center">
       <Menu className="absolute top-5 left-5" />
       <Box>
-        <Typography variant="h5" align="center" gutterBottom>
-          Footprint Calculator
-        </Typography>
+        <p className="text-2xl mb-6 font-bold">Sea Level Rise Impact Tool</p>
         <Box
           sx={{
             bgcolor: "grey.200",
@@ -75,7 +73,7 @@ function LifeStyleForm() {
             <Box sx={{ display: "flex", justifyContent: "center", mb: 1 }}>
               <TextField
                 id="outlined-basic"
-                label="Your Location?"
+                label="Location"
                 defaultValue="Waco, TX"
                 variant="outlined"
                 value={location}

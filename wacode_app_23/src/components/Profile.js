@@ -24,10 +24,10 @@ function ProfilePage() {
             <p className="font-semibold">HISTORY</p>
             <div className="bg-cyan-50  flex flex-col rounded-lg drop-shadow-xl">
               <ul className= "space-y-4">
+                <li className="mt-2">item1</li>
                 <li>item1</li>
                 <li>item1</li>
-                <li>item1</li>
-                <li>item1</li>
+                <li className="pb-2">item1</li>
               </ul>
             </div>
 
