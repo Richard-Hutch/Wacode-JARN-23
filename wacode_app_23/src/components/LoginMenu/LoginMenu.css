@@ -1,8 +1,8 @@
 .mainContainer{
   display: 'flex';
-  background-color: rgba(239, 201, 119, 0.8); 
+  background-color: rgba(220, 220, 219, 0.98); 
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* add a shadow effect */
-  opacity: 0.8;
+  opacity: 0.9;
 }
 .loginContainer{
   font-size: medium;
@@ -15,5 +15,7 @@
 
 .backgroundContainer {
   background-image: url('wacode_background.png');
-  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
