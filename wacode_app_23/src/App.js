@@ -1,8 +1,8 @@
 import "./App.css";
 import LoginMenu from "./components/LoginMenu/LoginMenu";
-import TempParent from "./components/tempParent";
 import Page404 from "./components/Page404"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LifeStyleForm from "./components/LifeStyleForm";
 
 function App() {
   return (
@@ -10,8 +10,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="*" element={<Page404/>} />
-          <Route path="/" element={ <TempParent/>}>
-          <Route path="/login" element={<LoginMenu/>} />
+          <Route path="/" element={<LoginMenu/>} />
+          <Route path="/tool" element={ <LifeStyleForm/>}>
           </Route>
         </Routes>
       </BrowserRouter>

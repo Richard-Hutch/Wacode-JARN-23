@@ -1,15 +1,18 @@
-import * as React from 'react';
-import { useState } from 'react';
+import  React from 'react';
+import { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import MenuIcon from "@mui/icons-material/Menu";
+
 import { Grid } from '@mui/material';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { functions } from '../config/firebase';
 import { httpsCallable } from 'firebase/functions';
 import {useMutation} from 'react-query'
+import Menu from "./MainDropMenu"
 
-function DailyInputForm() {
+function LifeStyleForm() {
 
   const [location, setLocation] = useState('');
   const [milesDriven, setMilesDriven] = useState('');
@@ -55,7 +58,9 @@ function DailyInputForm() {
   }
 
   return (
-    <Box>
+    <div class="h-screen w-screen flex items-center justify-center">
+        <Menu className="absolute top-5 left-5"/>
+        <Box>
     <Typography variant="h5" align="center" gutterBottom>Footprint Calculator</Typography>
         <Box sx={{ bgcolor: 'grey.200', p: 2, borderRadius: '12px', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.5)' }}>
             <Box>
@@ -143,7 +148,9 @@ function DailyInputForm() {
             {imageBuffer && <img src={imageBuffer} alt='Not Found' />}
         </Box>
     </Box>
+    </div>
+    
   );
 }
 
-export default DailyInputForm;
+export default LifeStyleForm;
