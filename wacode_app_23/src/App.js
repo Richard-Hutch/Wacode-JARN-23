@@ -1,6 +1,8 @@
 import "./App.css";
 import LoginMenu from "./components/LoginMenu/LoginMenu";
 import Page404 from "./components/Page404"
+import ProfilePage from "./components/Profile"
+import ComparePage from "./components/ComparePage"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LifeStyleForm from "./components/LifeStyleForm";
 
@@ -11,8 +13,9 @@ function App() {
         <Routes>
           <Route path="*" element={<Page404/>} />
           <Route path="/" element={<LoginMenu/>} />
-          <Route path="/tool" element={ <LifeStyleForm/>}>
-          </Route>
+          <Route path="/tool" element={ <LifeStyleForm/>}/>
+          <Route path="/profile" element={<ProfilePage/>}/>
+          <Route path="/compare" element={<ComparePage/>}/>
         </Routes>
       </BrowserRouter>
     </div>

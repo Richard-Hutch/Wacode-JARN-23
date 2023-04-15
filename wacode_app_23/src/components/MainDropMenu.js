@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import DailyInputForm from "./DailyInputForm";
+import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
 import Divider from "@mui/material/Divider";
@@ -8,9 +8,10 @@ import MenuList from "@mui/material/MenuList";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import GroupIcon from "@mui/icons-material/Group";
+import EnergySavingsLeafIcon from '@mui/icons-material/EnergySavingsLeaf';
 import LogoutIcon from "@mui/icons-material/Logout";
 import WaterDamageIcon from "@mui/icons-material/WaterDamage";
+
 
 // Create a functional component
 const MainDropMenu = (props) => {
@@ -47,19 +48,33 @@ const MainDropMenu = (props) => {
                 <ListItemText>Profile</ListItemText>
               </MenuItem>
             </Link>
+            <Link to="/compare">
 
             <MenuItem>
               <ListItemIcon>
-                <GroupIcon fontSize="small" />
+                <EmojiPeopleIcon fontSize="small" />
               </ListItemIcon>
               <ListItemText>Compare</ListItemText>
             </MenuItem>
+            </Link>
+
+            <Link to="/tool">
+              <MenuItem>
+                <ListItemIcon>
+                  <WaterDamageIcon fontSize="small" />
+                </ListItemIcon>
+
+                <ListItemText>Sea Level Tool</ListItemText>
+              </MenuItem>
+            </Link>
+
             <MenuItem>
               <ListItemIcon>
-                <WaterDamageIcon fontSize="small" />
+                <EnergySavingsLeafIcon fontSize="small" />
               </ListItemIcon>
               <ListItemText>Sustainability Tips</ListItemText>
             </MenuItem>
+            
             <Divider />
             <MenuItem>
               <ListItemIcon>
