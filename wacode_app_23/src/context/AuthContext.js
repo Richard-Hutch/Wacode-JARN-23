@@ -49,13 +49,11 @@ export const AuthProvider = ({ children }) => {
       // get all data except for password
       const {
         email,
-        password,
         username
       } = data
 
       const insert = {
         email,
-        password,
         username,
         days: []
       }

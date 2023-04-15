@@ -14,7 +14,9 @@ exports.getNOAAMap = functions.https.onRequest((req, res) => {
   cors(req, res, async () => {
     const puppet = await puppeteer.launch({headless: true});
     const page = await puppet.newPage();
-    const {q} = req.body.data;
+    const {q, feet} = req.body.data;
+
+    functions.logger.info(req.body.data);
 
     if (!q) {
       res.status(404).send("ERROR: No Query Param Provided");
@@ -47,6 +49,40 @@ exports.getNOAAMap = functions.https.onRequest((req, res) => {
       await page.waitForNetworkIdle();
 
       functions.logger.info("City found successfully");
+
+      await page.waitForSelector("#gaugeSlrSlider");
+      // Select the target element and calculate its offset and height
+      const elementData = await page.evaluate(() => {
+        const element = document.querySelector("#gaugeSlrSlider");
+        const rect = element.getBoundingClientRect();
+        return {
+          x: rect.x + window.scrollX,
+          y: rect.y + window.scrollY,
+          height: rect.height,
+        };
+      });
+
+      functions.logger.info(elementData);
+
+      const percentage = 100 - (feet * 10);
+      const clickY = elementData.y + (elementData.height * percentage) / 100;
+
+      functions.logger.info(`${percentage} ${elementData.x} ${clickY}`);
+
+      let offset = 0;
+      if (feet === 5) {
+        offset = 10;
+      } else if (feet === 6 || feet === 7 || feet === 8) {
+        offset = 15;
+      } else if (feet === 9 || feet === 10) {
+        offset = 20;
+      }
+
+      await page.mouse.click(elementData.x + 10, clickY + offset);
+
+      await page.waitForTimeout(300);
+
+      functions.logger.info("finished navigating");
 
       imgBuf = await page.screenshot({type: "png", encoding: "base64"});
 
