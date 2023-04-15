@@ -48,12 +48,23 @@ function LifeStyleForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const getNOAAMap = httpsCallable(functions, "getNOAAMap");
-    getNOAAMap({ q: location, feet: 4 })
-        .then((res) => {
-            console.log(res.data)
-            setImageBuffer(`data:image/png;base64, ${res.data}`)
-        })
-        .catch((res) => console.log(res))
+
+    const lbsOfCO2 = (((parseFloat(electricity) / 12) * 123.5235) + (parseFloat(hoursFlown) * 198.416) + (((parseFloat(milesDriven) * 365) / parseFloat(mpg)) * 19.5924))
+    let seaLevel = (((lbsOfCO2 * 7888000000) / 17170000000000) * 0.14 * 27) / 12.0
+    seaLevel = Math.round(seaLevel)
+
+    if (seaLevel < 1) {
+      seaLevel = 1
+    }
+    else if (seaLevel > 10) {
+      seaLevel = 10
+    }
+    
+    getNOAAMap({ q: location, feet: seaLevel })
+      .then((res) => {
+        setImageBuffer(`data:image/png;base64, ${res.data}`);
+      })
+      .catch((res) => console.log(res));
   };
 
   return (
