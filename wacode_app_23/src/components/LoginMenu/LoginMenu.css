@@ -1,22 +1,28 @@
-.mainContainer{
+.mainContainer {
   display: 'flex';
   background-color: rgba(220, 220, 219, 0.98); 
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* add a shadow effect */
-  opacity: 0.5;
+  opacity: .95;
+}
+.loginContainer {
+  flex-direction: row;
+  font-size: medium;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin-top: 2px;
+  margin-bottom: 10px; */
+}
+
+.signinContainer {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+.wacodeImage{
   background-image: url('wacode_background.png');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-}
-.loginContainer{
-  font-size: medium;
-}
-
-.signinContainer{
-  padding-left: 100px;
-  padding-right: 100px;
-}
-
-.backgroundContainer {
-
+  min-height: 100px;
+  min-width: 250px;
 }
