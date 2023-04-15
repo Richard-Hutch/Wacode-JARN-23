@@ -4,8 +4,10 @@ import MainPage from './components/MainPage';
 
 function App() {
   return (
-    <div className="App font-mono">
-      <LoginMenu/>
+    <div className="App-backgroundMain">
+      <div className="App font-mono">
+          <LoginMenu/>
+      </div>
     </div>
   );
 }
