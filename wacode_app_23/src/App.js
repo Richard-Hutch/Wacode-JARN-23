@@ -1,6 +1,6 @@
 import "./App.css";
 import LoginMenu from "./components/LoginMenu/LoginMenu";
-import MainPage from "./components/MainPage";
+import TempParent from "./components/tempParent";
 import Page404 from "./components/Page404"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -10,7 +10,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="*" element={<Page404/>} />
-          <Route path="/" element={ <MainPage/>}>
+          <Route path="/" element={ <TempParent/>}>
           <Route path="/login" element={<LoginMenu/>} />
           </Route>
         </Routes>

@@ -5,14 +5,18 @@ import Typography from '@mui/material/Typography';
 import { Grid } from '@mui/material';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import { functions } from '../config/firebase';
+import { httpsCallable } from 'firebase/functions';
+import {useMutation} from 'react-query'
 
-function LifeStyleForm() {
+function DailyInputForm() {
 
   const [location, setLocation] = useState('');
   const [milesDriven, setMilesDriven] = useState('');
   const [hoursFlown, setHoursFlown] = useState('');
   const [mpg, setMPG] = useState('');
   const [electricity, setElecticity] = useState('');
+  const [imageBuffer, setImageBuffer] = useState('');
 
   const handleLocationChange = (event) => {
     const input = event.target.value;
@@ -37,6 +41,17 @@ function LifeStyleForm() {
   const handleElecChange = (event) => {
     const input = event.target.value;
     setElecticity(input);
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    const getNOAAMap = httpsCallable(functions, 'getNOAAMap')
+    getNOAAMap({ q: location })
+        .then((res) => {
+            console.log(res.data)
+            setImageBuffer(`data:image/png;base64, ${res.data}`)
+        })
+        .catch((res) => console.log(res))
   }
 
   return (
@@ -118,14 +133,17 @@ function LifeStyleForm() {
                 <Button variant="contained" sx={{ marginRight: '0.5rem', marginLeft: '1.05rem' }}>
                     Back
                 </Button>
-                <Button variant="contained" sx={{ marginLeft: '0.5rem' }}>
+                <Button onClick={handleSubmit} variant="contained" sx={{ marginLeft: '0.5rem' }}>
                     Submit
                 </Button>
                 </Box>
             </Box>
         </Box>
+        <Box>
+            {imageBuffer && <img src={imageBuffer} alt='Not Found' />}
+        </Box>
     </Box>
   );
 }
 
-export default LifeStyleForm;
+export default DailyInputForm;
