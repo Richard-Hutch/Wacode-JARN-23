@@ -20,16 +20,14 @@ function ProfilePage() {
             </div>   
         </div>
         {/* HISTORY */}
-        <div className="mt-20"> 
+        <div className="mt-20 w-1/4">
             <p className="font-semibold">HISTORY</p>
-            <div className="bg-cyan-50 w-1/4 flex flex-col rounded-lg drop-shadow-xl">
-              <ul className= "">
+            <div className="bg-cyan-50  flex flex-col rounded-lg drop-shadow-xl">
+              <ul className= "space-y-4">
                 <li>item1</li>
                 <li>item1</li>
                 <li>item1</li>
-
                 <li>item1</li>
-
               </ul>
             </div>
 
