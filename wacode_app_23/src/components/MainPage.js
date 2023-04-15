@@ -12,7 +12,6 @@ import GroupIcon from '@mui/icons-material/Group';
 import LogoutIcon from '@mui/icons-material/Logout';
 import WaterDamageIcon from '@mui/icons-material/WaterDamage';
 
-
 const MainPage = (props) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const listStyle = "hover:text-gray-50 hover:bg-sky-500 hover:rounded-2xl";
