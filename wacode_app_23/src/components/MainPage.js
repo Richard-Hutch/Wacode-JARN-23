@@ -1,16 +1,34 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import DailyInputForm from "./DailyInputForm";
-import MenuIcon from '@mui/icons-material/Menu';
+import MenuIcon from "@mui/icons-material/Menu";
 
-// Create a functional component
 const MainPage = (props) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleMenuClick = () => {
+    setIsMenuOpen(!isMenuOpen);
+
+  };
+
   return (
-    <div class="h-screen w-screen flex items-center justify-center">
-      <MenuIcon className="absolute top-5 left-5"/>
+    <div className="h-screen w-screen flex items-center justify-center">
+      <button onClick={handleMenuClick}>
+          <MenuIcon
+            className="absolute top-5 left-5 hover:bg-gray-100 hover:rounded-2xl"
+            fontSize="large"
+          />
+      </button>
+
+      {isMenuOpen === true && (
+        <div
+          className={`absolute top-14 left-5 bg-slate-600`}
+        >
+          fsdfadfldskf;jskldf
+        </div>
+      )}
       <DailyInputForm />
     </div>
   );
 };
 
-// Export the component
 export default MainPage;
