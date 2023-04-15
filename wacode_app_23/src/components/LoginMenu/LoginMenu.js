@@ -8,28 +8,41 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import { useAuth } from '../../context/AuthContext'
 import './LoginMenu.css';
 
 
 function LoginInfo() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  // const [username, setUsername] = useState('');
+  // const [password, setPassword] = useState('');
 
-  const handleUsernameChange = (event) => {
-    setUsername(event.target.value);
-  };
+  // const handleUsernameChange = (event) => {
+  //   setUsername(event.target.value);
+  // };
 
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
+  // const handlePasswordChange = (event) => {
+  //   setPassword(event.target.value);
+  // };
 
-  const handleSubmit = (event) => {
+  const { login, error, clearErrors } = useAuth();
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
+
     const data = new FormData(event.currentTarget);
-    // console.log({
-    //   email: data.get('email'),
-    //   password: data.get('password'),
-    // });
+
+    try {
+      const uid = await login(data.get('email'), data.get('password'))
+
+      if (uid && !error?.isError) {
+        console.log("SUCCESSFUL LOGIN")
+        //IMPLEMENT FRONT END LOGIC IF LOGIN IS SUCCESSFUL
+      }
+    }
+    catch (e) {
+      console.log("ERROR")
+    }
+
   };
 
   return (
