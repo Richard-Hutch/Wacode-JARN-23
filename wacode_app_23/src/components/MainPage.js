@@ -1,13 +1,16 @@
-import React from 'react';
+import React from "react";
+import DailyInputForm from "./DailyInputForm";
+import MenuIcon from '@mui/icons-material/Menu';
+
 // Create a functional component
 const MainPage = (props) => {
-    return (
-      <div className="bg-blue-100 p-4 rounded-md shadow-md">
-        <h1 className="text-2xl font-bold mb-4">Hello, World!</h1>
-        <p className="text-lg">This is a functional component using ReactJS and Tailwind CSS.</p>
-      </div>
-    );
-  };
-  
-  // Export the component
-  export default MainPage;
+  return (
+    <div class="h-screen w-screen flex items-center justify-center">
+      <MenuIcon className="absolute top-5 left-5"/>
+      <DailyInputForm />
+    </div>
+  );
+};
+
+// Export the component
+export default MainPage;
