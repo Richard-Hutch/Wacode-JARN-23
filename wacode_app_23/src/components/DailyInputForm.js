@@ -9,6 +9,7 @@ import { functions } from '../config/firebase';
 import { httpsCallable } from 'firebase/functions';
 import {useMutation} from 'react-query'
 
+
 function DailyInputForm() {
 
   const [location, setLocation] = useState('');
@@ -46,7 +47,7 @@ function DailyInputForm() {
   const handleSubmit = (event) => {
     event.preventDefault()
     const getNOAAMap = httpsCallable(functions, 'getNOAAMap')
-    getNOAAMap({ q: location })
+    getNOAAMap({ q: location, feet: 4 })
         .then((res) => {
             console.log(res.data)
             setImageBuffer(`data:image/png;base64, ${res.data}`)
@@ -143,6 +144,7 @@ function DailyInputForm() {
             {imageBuffer && <img src={imageBuffer} alt='Not Found' />}
         </Box>
     </Box>
+
   );
 }
 
