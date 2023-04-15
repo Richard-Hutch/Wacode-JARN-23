@@ -48,12 +48,12 @@ function LifeStyleForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const getNOAAMap = httpsCallable(functions, "getNOAAMap");
-    getNOAAMap({ q: location })
-      .then((res) => {
-        console.log(res.data);
-        setImageBuffer(`data:image/png;base64, ${res.data}`);
-      })
-      .catch((res) => console.log(res));
+    getNOAAMap({ q: location, feet: 4 })
+        .then((res) => {
+            console.log(res.data)
+            setImageBuffer(`data:image/png;base64, ${res.data}`)
+        })
+        .catch((res) => console.log(res))
   };
 
   return (
