@@ -28,14 +28,20 @@
   color: #61dafb;
 }
 
-.App-backgroundMain{
+/* .App-backgroundMain{
   background-image: url('test_image.jpeg');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
   min-height: 100vh;
+} */
+.App-backgroundMain {
+  background-image: url('test_image.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
 }
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -2,7 +2,7 @@
   display: 'flex';
   background-color: rgba(220, 220, 219, 0.98); 
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* add a shadow effect */
-  opacity: 0.5;
+  opacity: .95;
 }
 .loginContainer {
   flex-direction: row;
