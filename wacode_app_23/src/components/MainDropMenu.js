@@ -20,7 +20,6 @@ const MainDropMenu = (props) => {
   const handleMenuClick = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-  const handleLogout = () => {};
 
   return (
     <div className="">
@@ -76,13 +75,17 @@ const MainDropMenu = (props) => {
             </MenuItem>
             
             <Divider />
-            <MenuItem>
-              <ListItemIcon>
-                <LogoutIcon fontSize="small" />
-              </ListItemIcon>
-              <ListItemText>Logout</ListItemText>
-            </MenuItem>
-          </MenuList>
+            <Link to="/">
+            <MenuItem >
+                <ListItemIcon>
+                  <LogoutIcon fontSize="small" />
+                </ListItemIcon>
+                <ListItemText>Logout</ListItemText>
+              </MenuItem>  
+            </Link>
+
+            </MenuList>
+
         </div>
       )}
     </div>

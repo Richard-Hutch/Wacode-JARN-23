@@ -9,6 +9,8 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import EmojiPeopleIcon from "@mui/icons-material/EmojiPeople";
 import { useAuth } from "../../context/AuthContext";
+import { Link } from 'react-router-dom'
+
 import "./LoginMenu.css";
 
 function LoginInfo() {
@@ -108,6 +110,8 @@ function LoginInfo() {
                     fullWidth
                     variant="contained"
                     sx={{ mt: 2, mb: 2 }}
+                    as={Link} to ="/tool"
+
                   >
                     Sign In
                   </Button>
