@@ -7,7 +7,7 @@ import Checkbox from '@mui/material/Checkbox';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
 import { useAuth } from '../../context/AuthContext'
 import './LoginMenu.css';
 
@@ -57,11 +57,12 @@ function LoginInfo() {
             alignItems: 'center',
           }}
         >
+          <div className="wacodeImage"></div>
           <Typography component="h1" variant="h5" style={{ color: 'black' }}>
-            Welcome to our app!
-            <div className="loginContainer">
-              <AccountBoxIcon></AccountBoxIcon> Please Login
-            </div>
+            <EmojiPeopleIcon></EmojiPeopleIcon> Welcome to our app!
+            {/* <div className="loginContainer">
+              <AccountBoxIcon></AccountBoxIcon> 
+            </div> */}
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
@@ -95,6 +96,9 @@ function LoginInfo() {
             <div className="signinContainer">
               <Button type="submit" fullWidth variant="contained" sx={{ mt: 2, mb: 2 }} >
                 Sign In
+              </Button>
+              <Button type="create" fullWidth variant="contained" sx={{ mt: 2, mb: 2 }} >
+                Create Account
               </Button>
             </div>
           </Box>
