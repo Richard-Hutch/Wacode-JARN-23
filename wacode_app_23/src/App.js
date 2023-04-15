@@ -5,7 +5,7 @@ import MainPage from './components/MainPage';
 function App() {
   return (
     <div className="App-backgroundMain">
-      <div className="App font-mono">
+      <div className="loginInfoContainer">
           <LoginMenu/>
       </div>
     </div>

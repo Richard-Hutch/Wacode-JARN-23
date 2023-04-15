@@ -9,14 +9,16 @@
   background-position: center;
 }
 .loginContainer{
+  flex-direction: row;
   font-size: medium;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin-top: 2px;
+  margin-bottom: 10px; */
 }
 
 .signinContainer{
   padding-left: 100px;
   padding-right: 100px;
-}
-
-.backgroundContainer {
-
 }

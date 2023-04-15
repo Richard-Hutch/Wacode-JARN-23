@@ -33,57 +33,60 @@ function LoginInfo() {
   };
 
   return (
-    <div className="backgroundContainer">
-      <div>
-        <Container component="main" maxWidth="xs">
-          <CssBaseline />
-          <Box className="mainContainer"
-            sx={{
-              marginTop: 8,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-            }}
-          >
-            <Typography component="h1" variant="h5" style={{ color: 'black' }}>
-              Welcome to our app!
-              <div className="loginContainer">
-                <AccountBoxIcon></AccountBoxIcon> Please Login
-              </div>
-            </Typography>
-            <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email"
-                name="email"
-                autoComplete="email"
-                autoFocus
-                style={{ color: 'black' }}
-              />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-                style={{ color: 'black' }}
-              />
-              <div className="signinContainer">
-                <Button type="submit" fullWidth variant="contained" sx={{ mt: 2, mb: 2 }} >
-                  Sign In
-                </Button>
-              </div>
-            </Box>
+    <div>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Box className="mainContainer"
+          sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <Typography component="h1" variant="h5" style={{ color: 'black' }}>
+            Welcome to our app!
+            <div className="loginContainer">
+              <AccountBoxIcon></AccountBoxIcon> Please Login
+            </div>
+          </Typography>
+          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email"
+              name="email"
+              autoComplete="email"
+              autoFocus
+              style={{ color: 'black' }}
+              inputProps={{
+                style: { color: 'black' }
+              }}
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+              style={{ color: 'black' }}
+              inputProps={{
+                style: { color: 'black' }
+              }}
+            />
+            <div className="signinContainer">
+              <Button type="submit" fullWidth variant="contained" sx={{ mt: 2, mb: 2 }} >
+                Sign In
+              </Button>
+            </div>
           </Box>
-        </Container>
-    
-      </div>
+        </Box>
+      </Container>
     </div>
   );
 }
