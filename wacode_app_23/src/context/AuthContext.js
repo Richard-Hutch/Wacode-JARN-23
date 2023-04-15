@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as React from "react"
 import { auth, db } from "../config/firebase"
 import { useContext, createContext } from "react"
