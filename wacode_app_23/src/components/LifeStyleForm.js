@@ -19,6 +19,7 @@ function LifeStyleForm() {
   const [mpg, setMPG] = useState("");
   const [electricity, setElecticity] = useState("");
   const [imageBuffer, setImageBuffer] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleLocationChange = (event) => {
     const input = event.target.value;
@@ -59,9 +60,12 @@ function LifeStyleForm() {
     else if (seaLevel > 10) {
       seaLevel = 10
     }
+
+    setLoading(true)
     
     getNOAAMap({ q: location, feet: seaLevel })
       .then((res) => {
+        setLoading(false)
         setImageBuffer(`data:image/png;base64, ${res.data}`);
       })
       .catch((res) => console.log(res));
@@ -168,7 +172,13 @@ function LifeStyleForm() {
             </Box>
           </Box>
         </Box>
-        <Box>{imageBuffer && <img src={imageBuffer} alt="Not Found" />}</Box>
+        <Box className="mt-10">{
+          (loading) ?
+            "Loading..."
+          :
+            imageBuffer && <img src={imageBuffer} alt="Not Found" />
+          }
+        </Box>
       </Box>
     </div>
   );
