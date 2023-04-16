@@ -80,7 +80,7 @@ exports.getNOAAMap = functions.https.onRequest((req, res) => {
 
       await page.mouse.click(elementData.x + 10, clickY + offset);
 
-      await page.waitForTimeout(300);
+      await page.waitForNetworkIdle();
 
       functions.logger.info("finished navigating");
 
