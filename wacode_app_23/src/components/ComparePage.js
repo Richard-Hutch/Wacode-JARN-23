@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { TextField, List, ListItem, ListItemText } from '@mui/material/';
 import { db } from '../config/firebase';
+import Menu from "./MainDropMenu";
+
 
 function ComparePage() {
   const [results, setResults] = useState([]);
@@ -16,6 +18,8 @@ function ComparePage() {
 
   return (
     <div style={{ paddingTop: '50px' }}>
+      <Menu className="absolute top-5 left-5" />
+      <p className="text-xl font-bold mb-5">Compare Your Lifestyle Impact to Others!</p>
       <TextField
         label="Search by city"
         value={searchValue}

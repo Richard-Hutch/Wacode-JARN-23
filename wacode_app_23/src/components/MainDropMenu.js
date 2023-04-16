@@ -66,13 +66,15 @@ const MainDropMenu = (props) => {
                 <ListItemText>Sea Level Tool</ListItemText>
               </MenuItem>
             </Link>
+            <Link to ="/sustainability">
+              <MenuItem>
+                <ListItemIcon>
+                  <EnergySavingsLeafIcon fontSize="small" />
+                </ListItemIcon>
+                <ListItemText>Sustainability Tips</ListItemText>
+              </MenuItem>
+            </Link>
 
-            <MenuItem>
-              <ListItemIcon>
-                <EnergySavingsLeafIcon fontSize="small" />
-              </ListItemIcon>
-              <ListItemText>Sustainability Tips</ListItemText>
-            </MenuItem>
             
             <Divider />
             <Link to="/">

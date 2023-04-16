@@ -11,6 +11,7 @@ import { functions } from "../config/firebase";
 import { httpsCallable } from "firebase/functions";
 import { useMutation } from "react-query";
 import Menu from "./MainDropMenu";
+import Wave from "react-wavify";
 
 function LifeStyleForm() {
   const [location, setLocation] = useState("");
@@ -49,11 +50,11 @@ function LifeStyleForm() {
     event.preventDefault();
     const getNOAAMap = httpsCallable(functions, "getNOAAMap");
     getNOAAMap({ q: location, feet: 4 })
-        .then((res) => {
-            console.log(res.data)
-            setImageBuffer(`data:image/png;base64, ${res.data}`)
-        })
-        .catch((res) => console.log(res))
+      .then((res) => {
+        console.log(res.data);
+        setImageBuffer(`data:image/png;base64, ${res.data}`);
+      })
+      .catch((res) => console.log(res));
   };
 
   return (
@@ -159,6 +160,32 @@ function LifeStyleForm() {
         </Box>
         <Box>{imageBuffer && <img src={imageBuffer} alt="Not Found" />}</Box>
       </Box>
+      {!imageBuffer && (
+        <>
+          <Wave
+            className="absolute bottom-4"
+            fill="#3680a3"
+            paused={false}
+            options={{
+              height: 10,
+              amplitude: 30,
+              speed: 0.3,
+              points: 3,
+            }}
+          />
+          <Wave
+            className="absolute bottom-0"
+            fill="#89CFF0"
+            paused={false}
+            options={{
+              height: 20,
+              amplitude: 20,
+              speed: 0.2,
+              points: 5,
+            }}
+          />
+        </>
+      )}
     </div>
   );
 }
